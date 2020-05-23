@@ -11,10 +11,12 @@ class GildedRoseTest {
 
 
     @DisplayName("Should able to update quality")
-    @ParameterizedTest(name = "{index} => name={0}, sellIn={1}, quality={2}")
+    @ParameterizedTest(name = "{index} => name={0}, sellIn={1}" +
+            ", expectedSellIN={2}, quality={3}, expectedQuality={4}")
     @CsvSource({
             "foo, 0, -1,0,0",
-            "Aged Brie,0,-1,0,2"
+            "Aged Brie,0,-1,0,2",
+            "Backstage passes to a TAFKAL80ETC concert,0,0,0,0"
     })
     void testUpdateQuality( String name, int sellIn, int expectedSelln,int quality,int expectedQuality ) {
         GildedRose app = updateQuality( name, sellIn, quality );
