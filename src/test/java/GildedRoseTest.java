@@ -16,7 +16,7 @@ class GildedRoseTest {
     @CsvSource({
             "foo, 0, -1,0,0",
             "Aged Brie,0,-1,0,2",
-            "Backstage passes to a TAFKAL80ETC concert,0,0,0,0"
+            "Backstage passes to a TAFKAL80ETC concert,0,-1,0,0"
     })
     void testUpdateQuality( String name, int sellIn, int expectedSelln,int quality,int expectedQuality ) {
         GildedRose app = updateQuality( name, sellIn, quality );
