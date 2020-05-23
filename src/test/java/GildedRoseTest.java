@@ -15,6 +15,7 @@ class GildedRoseTest {
             ", expectedSellIN={2}, quality={3}, expectedQuality={4}")
     @CsvSource(value = {
             "foo| 0| -1|0|0",
+            "foo| 0| -1|1|0",
             "Aged Brie|0|-1|0|2",
             "Backstage passes to a TAFKAL80ETC concert|0|-1|0|0",
             "Sulfuras, Hand of Ragnaros|0|0|0|0"
