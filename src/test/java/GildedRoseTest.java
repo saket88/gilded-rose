@@ -19,6 +19,7 @@ class GildedRoseTest {
             "foo| 0| -1|51|49",
             "Aged Brie|0|-1|0|2",
             "Aged Brie| 7| 6|49|50",
+            "Aged Brie| 7| 6|51|51",
             "Backstage passes to a TAFKAL80ETC concert|0|-1|0|0",
             "Sulfuras, Hand of Ragnaros|0|0|0|0"
     },delimiter = '|')
