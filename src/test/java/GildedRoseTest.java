@@ -13,11 +13,12 @@ class GildedRoseTest {
     @DisplayName("Should able to update quality")
     @ParameterizedTest(name = "{index} => name={0}, sellIn={1}" +
             ", expectedSellIN={2}, quality={3}, expectedQuality={4}")
-    @CsvSource({
-            "foo, 0, -1,0,0",
-            "Aged Brie,0,-1,0,2",
-            "Backstage passes to a TAFKAL80ETC concert,0,-1,0,0"
-    })
+    @CsvSource(value = {
+            "foo| 0| -1|0|0",
+            "Aged Brie|0|-1|0|2",
+            "Backstage passes to a TAFKAL80ETC concert|0|-1|0|0",
+            "Sulfuras, Hand of Ragnaros|0|0|0|0"
+    },delimiter = '|')
     void testUpdateQuality( String name, int sellIn, int expectedSelln,int quality,int expectedQuality ) {
         GildedRose app = updateQuality( name, sellIn, quality );
         assertEquals( name, app.items[0].name);
