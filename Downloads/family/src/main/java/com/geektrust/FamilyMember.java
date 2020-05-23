@@ -7,9 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.geektrust.FamilyConstants.*;
+
 @Getter
 @EqualsAndHashCode
-public class FamilyMember {
+public abstract class FamilyMember {
     private final String name;
     private final String gender;
     private  FamilyMember father;
@@ -36,6 +38,7 @@ public class FamilyMember {
     }
 
     public void addChild(FamilyMember familyMember) {
+
         if (children!=null)
         this.children.add(familyMember);
     }
@@ -119,4 +122,6 @@ public class FamilyMember {
                 .map(FamilyMember::getName)
                 .collect(Collectors.joining(" "));
     }
+
+    public abstract String addChild_V2( FamilyMember familyToBeAdded ) ;
 }

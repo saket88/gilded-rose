@@ -31,22 +31,26 @@ public class Family {
 
     public String addChild(String motherName, String childName , String gender) {
         FamilyMember familyMember= searchMember(rootFamily.getRootMother(),motherName);
+
         if(familyMember==null)
             return PERSON_NOT_FOUND;
 
-        if (familyMember.getGender().equals(MALE))
-           return CHILD_ADDITION_FAILED;
-        else {
-            addChildToFamilyMemberAndSpouse(childName, gender, familyMember);
-            return CHILD_ADDITION_SUCCEDED;
-        }
+//        if (familyMember.getGender().equals(MALE) && familyMember.getSpouse()==null)
+//           return CHILD_ADDITION_FAILED;
+//        else {
+//            addChildToFamilyMemberAndSpouse(childName, gender, familyMember);
+//            return CHILD_ADDITION_SUCCEDED;
+//        }
+
+        FamilyMember familyToBeAdded = new FemaleMember( childName, gender, getParent( familyMember, "Male" ), getParent( familyMember, "Female" ) );
+        return familyMember.addChild_V2( familyToBeAdded );
     }
 
-    private void addChildToFamilyMemberAndSpouse(String childName, String gender, FamilyMember familyMember) {
-        FamilyMember child= new FamilyMember(childName,gender,getParent(familyMember, "Male"),getParent(familyMember, "Female"));
-        familyMember.addChild(child);
-        familyMember.getSpouse().addChild(child);
-    }
+//    private void addChildToFamilyMemberAndSpouse(String childName, String gender, FamilyMember familyMember) {
+//        FamilyMember child= new FamilyMember(childName,gender,getParent(familyMember, "Male"),getParent(familyMember, "Female"));
+//        familyMember.addChild(child);
+//        familyMember.getSpouse().addChild(child);
+//    }
 
     private FamilyMember getParent(FamilyMember familyMember, String gender) {
         return familyMember.getGender().equals(gender) ? familyMember : familyMember.getSpouse();
@@ -145,4 +149,22 @@ public class Family {
             return ("".equals(relations)) ? "NONE" : relations;
 
     }
+
+
+    public String getRelativeFor(String memberName, String relationship){
+
+
+        Map<String,SearchRelative>
+                map.get(relationship).search(memberName);
+        return "";
+    }
+
+//        interface SearchRelatives(){
+//         public String search(String memberName);
+//           public boolean isApplicable(String command)
+//    }
+
+//    SearchINLaws implements SearchRelatives
+
+
 }

@@ -8,7 +8,10 @@ public class TestCommons {
 
     protected Family createRootFamily() {
         rootFather = new FamilyMember("Shan", "Male", null, null);
+
         rootMother = new FamilyMember("Anga", "Female", null, null);
+        rootFather.addSpouse(  rootMother);
+        rootMother.addSpouse( rootFather );
 
         return new  Family(new RootFamily(rootFather, rootMother));
     }

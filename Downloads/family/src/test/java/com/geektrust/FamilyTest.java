@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import java.nio.file.Paths;
 
+import static com.geektrust.FamilyConstants.CHILD_ADDITION_SUCCEDED;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -35,6 +36,33 @@ public class FamilyTest extends TestCommons {
         assertThat(family.getRootFamily().getRootMother(),is(rootMother));
 
     }
+    @Test
+    public void thereShouldBeAFamilyMemberWithHead_v2(){
+        Family family = createRootFamily();
+
+        String added= family.addChild( "Anga","Janki","Female" );
+        assertThat( CHILD_ADDITION_SUCCEDED, is( added ));
+
+    }
+
+    @Test
+    void shouldAbleToAddAChildToFatherOnlyWhenHeIsAdded() {
+        rootFather = new FamilyMember("Shan", "Male", null, null);
+
+        rootMother = new FamilyMember("Anga", "Female", null, null);
+        rootFather.addSpouse(  rootMother);
+        rootMother.addSpouse( rootFather );
+        Family family= new  Family(new RootFamily(rootFather, rootMother));
+
+        String addChild = family.addChild( "Shan", "Ravi", "Male" );
+        assertThat( addChild,is(  CHILD_ADDITION_SUCCEDED ));
+
+    }
+
+
+
+
+
 
 
     @Test
