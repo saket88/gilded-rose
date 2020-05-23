@@ -16,7 +16,9 @@ class GildedRoseTest {
     @CsvSource(value = {
             "foo| 0| -1|0|0",
             "foo| 0| -1|1|0",
+            "foo| 0| -1|51|49",
             "Aged Brie|0|-1|0|2",
+            "Aged Brie| 7| 6|49|50",
             "Backstage passes to a TAFKAL80ETC concert|0|-1|0|0",
             "Sulfuras, Hand of Ragnaros|0|0|0|0"
     },delimiter = '|')
