@@ -19,8 +19,10 @@ class GildedRoseTest {
             "foo| 0| -1|51|49",
             "Aged Brie|0|-1|0|2",
             "Aged Brie| 7| 6|49|50",
+            "Aged Brie| -1| -2|49|50",
             "Aged Brie| 7| 6|51|51",
             "Backstage passes to a TAFKAL80ETC concert|0|-1|0|0",
+            "Backstage passes to a TAFKAL80ETC concert|9|8|50|50",
             "Sulfuras, Hand of Ragnaros|0|0|0|0"
     },delimiter = '|')
     void testUpdateQuality( String name, int sellIn, int expectedSelln,int quality,int expectedQuality ) {
